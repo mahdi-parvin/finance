@@ -1,0 +1,32 @@
+{#---main page ---#}
+{% extends 'base.html' %}
+{% block exter_header %}
+{#---writing down the styles---#}
+    <style>
+    body{
+        background-color: #002b64;
+        color: white !important;
+    }
+    a.pages{
+        border-bottom: solid white  !important;
+        border-radius: 10px;
+        margin: 13px ;
+        width: 400px;
+        position: relative ;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+{#---defining each page key---#}
+<div style="text-align: center; margin-top: 2%">
+<h2 style="text-align: center;padding: 40px 0 30px ; position: relative ; font-family: serif;font-size: 50px">select the chart you want to see</h2>
+<a href="{% url 'page' 1 %}" class="btn pages">euro to unitedstates-dollar</a><br>
+<a href="{% url 'page' 2 %}" class="btn pages">euro to canada-dollar</a><br>
+<a href="{% url 'page' 3 %}" class="btn pages">euro to australia-dollar</a><br>
+<a href="{% url 'page' 4 %}" class="btn pages">euro to singapore-dollar</a><br>
+<a href="{% url 'page' 5 %}" class="btn pages">euro to russian ruble</a><br>
+<a href="{% url 'page' 6 %}" class="btn pages">euro to kuwait-dinar</a><br>
+</div>
+{% endblock %}
+{#---end of the page---#}

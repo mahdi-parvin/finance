@@ -1,0 +1,27 @@
+{#---singin page---#}
+{% extends 'base.html' %}
+{#---importing the styles---#}
+
+{% block exter_header%}
+<style>
+    body{
+        background-color: #002b64;
+        color: white !important;}
+</style>
+{% endblock%}
+
+{#---main part of the page---#}
+{% block content %}
+    <h2 style="text-align: center;padding: 40px 0 30px ; position: relative ; font-family: serif;font-size: 50px">Sign In</h2>
+
+<div >
+<form action="" method="post" style="width: 500px ; position: relative ; left: 30%; margin: 20px">
+{#    --- using 'csrf_token' so as to get the correct data from the user, not the deliberately malicious one---#}
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="send" style=" width: 500px ; margin-top: 25px" class="btn btn-outline-light ">
+</form>
+</div>
+
+{% endblock %}
+{#---end of the page---#}

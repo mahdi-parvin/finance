@@ -1,0 +1,28 @@
+{# base page#}
+
+{#---this page is the base page. here we right down all of the same and Repetitious codes which need to be in all template--- #}
+{#---pages in the project---#}
+<!DOCTYPE html>
+<html lang="en, fa">
+<head >
+<title>mypage</title>
+{#---importing the bootstrap source---#}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{#---difining the header block. so in any page we call {% block exter_header %} and write in this block(ending with similar---#}
+{#---tag {% end block %}) like the "style"s, it will automatically include in the part of header and will be influenced by---#}
+{#---any codes we right here---#}
+
+{% block exter_header %}
+{% endblock %}
+</head>
+<body>
+{% include 'inc/navbar.html' %}
+{#---and another block called content to right down the body part of the html pages ... ---#}
+{% block content %}
+{% endblock %}
+</body>
+</html>
+{#---NOW, WE DONT NEED TO RIGHT THE "html" AND OTHER NECESSARY Html TAGS IN EACH PAGE. JUST EXTENDING THIS PAGE IN EACH ONE---#}
+{#---THEN ALL THING WILL GO #}
+
+{#---end of the page---#}

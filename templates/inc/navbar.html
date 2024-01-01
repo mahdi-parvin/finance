@@ -1,0 +1,48 @@
+{#navbar page#}
+
+{#---this page as it come from it's name, is the navbar page. here we organize the main navbar of the site and attach---#}
+{#---it (by using include tag) to the main page (base.html) of the project---#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            padding: 0 15px !important;
+        }
+        p , a{
+            color: white !important;
+        }
+    </style>
+</head>
+<body>
+{#writing navbar section as the main part#}
+<nav class="navbar navbar-expand-sm  navbar-light">
+  <div class="container-fluid" style="background-color: #0f054c;" >
+    <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'main' %}>Main page</a>
+            </li>
+{#    bellow line checks the user_authentication. so if he/she loged ih, then it will show "hello (user name) " ,#}
+{#    and showing log out on this navbar. and if not, it will show the two buttons : login , signin #}
+        {% if request.user.is_authenticated %}
+            <li class="nav-item">
+            <p class="nav-link active" > Hello {{request.user}}</p>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'logout' %}>Logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'login' %}>Log in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href={% url 'signin' %}>Sign in</a>
+            </li>
+        {% endif %}
+    </ul>
+  </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,3 @@
+from django.db import models
+
+# --- I used the pre-existing model "User" to collectind and manage users data . so i didnt need to write new one...

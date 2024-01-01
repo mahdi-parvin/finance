@@ -1,0 +1,122 @@
+{#--- page ---#}
+{% extends 'base.html' %}
+{% block exter_header %}
+{#---writing down the styles---#}
+    <style>
+    img{
+        margin: 4% 6%;
+    }
+    body{
+        background-color: #002b64;
+        color: white !important;
+    }
+    .forcast{
+        display: inline-block ;
+        position: absolute;
+        top: 25%;
+        right: 20%;
+        width: 40%;
+    }
+    h2{
+        text-align: center;
+        margin-bottom: 5%;
+        position: relative;
+        left:21%;
+    }
+    table {
+        width: 60%;
+        margin: 0 20%;
+        position: relative;
+        left: 20%
+        }
+    tr {
+        text-align: center;
+        border-bottom: 1px solid #ffffff !important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+{#---defining the navbar part to access to each page more easily---#}
+<nav class="navbar navbar-expand-sm navbar-light">
+  <div class="container-fluid" style="background-color: #0f054c;">
+    <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'page' 1%}>eur to usd</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'page' 2%}>eur to cad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'page' 3%}>eur to aud</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'page' 4%}>eur to sgd</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'page' 5%}>eur to rub</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href={% url 'page' 6%}>eur to kwd</a>
+            </li>
+    </ul>
+  </div>
+</nav>
+
+{#---importing the diagram as a picture to template---#}
+<div style="display: inline-block ;">
+<img src="data:image/png;base64,{{ data }}" alt="" height="500" width="500" >
+</div>
+
+<div class="forcast" >
+{#---the explanation part#}
+        <h2>Next Days <br>Predicted Prices</h2>
+
+{#---writing the table to show the prices with the related future day---#}
+    <table class="check2">
+  <tr>
+    <th>The days</th>
+    <th>The Prices</th>
+  </tr>
+              <tr>
+                    <td>today</td>
+                    <td>{{ep0 }}</td>
+              </tr>
+              <tr>
+                    <td>tomorrow</td>
+                    <td>{{ep1 }}</td>
+              </tr>
+              <tr>
+                    <td>2 days later</td>
+                    <td>{{ ep2 }}</td>
+              </tr>
+              <tr>
+                    <td>3 days later</td>
+                    <td>{{ ep3}}</td>
+              </tr>
+              <tr>
+                    <td>4 days later</td>
+                    <td>{{ ep4}}</td>
+              </tr>
+              <tr>
+                    <td>5 days later</td>
+                    <td>{{ ep5}}</td>
+              </tr>
+</table>
+
+{#--- the notice part to gloss the diagram and guide to use it properly---#}
+<div style="margin-top: 7%">
+    <h6 style="text-align: center;width:780px">
+        <span style="color: darkred;font-weight: bold ">
+            notice: </span>
+        to use the left diagram, remember the diagram shows the price fluctuations<br>
+        in almost 20 recent days. Diagram starts from left side (from 20 days ago) <br>
+        to the red line seen in the diagram( refers to today).the most important <br>
+        thing is over than the red line( right side of the line); which belongs to the future!<br>
+        predicting the next days price fluctuations with the machine learning algorithms.<br>
+        enjoy it and see how it <span style="text-transform: uppercase;text-shadow:2px 2px 4px lightskyblue">dives into time!</span>
+    </h6>
+</div>
+</div>
+{% endblock %}
+{#---end of the page---#}
